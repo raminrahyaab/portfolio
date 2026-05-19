@@ -3,13 +3,20 @@ import { projects } from "../../data/projects"
 import { TextReveal } from "../ui/TextReveal"
 import { MagneticButton } from "../ui/MagneticButton"
 
-// Import project images
-const projectImages = import.meta.glob("../../assets/project-*.png", { eager: true, as: "url" })
+// Import project images statically
+import projectPos from "../../assets/project-pos.png"
+import projectTelenor from "../../assets/project-telenor.png"
+import projectAlitech from "../../assets/project-alitech.png"
+
+const projectImagesMap = {
+  "project-pos.png": projectPos,
+  "project-telenor.png": projectTelenor,
+  "project-alitech.png": projectAlitech,
+}
 
 const getProjectImage = (imageName) => {
   if (!imageName) return null
-  const key = `../../assets/${imageName}`
-  return projectImages[key] || null
+  return projectImagesMap[imageName] || null
 }
 
 export function Projects() {

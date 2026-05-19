@@ -1,19 +1,20 @@
 import { Container } from "../ui/Container"
 import { TextReveal } from "../ui/TextReveal"
 
+// Import project images statically
+import projectPos from "../../assets/project-pos.png"
+import projectTelenor from "../../assets/project-telenor.png"
+import projectAlitech from "../../assets/project-alitech.png"
+
 const projectImages = [
-  { src: "project-pos.png", alt: "POS Project" },
-  { src: "project-telenor.png", alt: "Telenor Project" },
-  { src: "project-alitech.png", alt: "Alitech Project" },
+  { src: projectPos, alt: "POS Project" },
+  { src: projectTelenor, alt: "Telenor Project" },
+  { src: projectAlitech, alt: "Alitech Project" },
 ]
 
 const row1 = [...projectImages, ...projectImages, ...projectImages, ...projectImages]
 const row2 = [...projectImages, ...projectImages, ...projectImages, ...projectImages]
 const row3 = [...projectImages, ...projectImages, ...projectImages, ...projectImages]
-
-// Import images dynamically
-const images = import.meta.glob("../../assets/project-*.png", { eager: true, as: "url" })
-const getImage = (name) => images[`../../assets/${name}`]
 
 export function ImageBanner() {
   return (
@@ -52,7 +53,7 @@ export function ImageBanner() {
                 }}
               >
                 <img
-                  src={getImage(img.src)}
+                  src={img.src}
                   alt={img.alt}
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                   style={{ backgroundColor: "var(--card)" }}
@@ -75,7 +76,7 @@ export function ImageBanner() {
                 }}
               >
                 <img
-                  src={getImage(img.src)}
+                  src={img.src}
                   alt={img.alt}
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                   style={{ backgroundColor: "var(--card)" }}
@@ -98,7 +99,7 @@ export function ImageBanner() {
                 }}
               >
                 <img
-                  src={getImage(img.src)}
+                  src={img.src}
                   alt={img.alt}
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                   style={{ backgroundColor: "var(--card)" }}
